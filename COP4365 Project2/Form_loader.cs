@@ -13,9 +13,9 @@ namespace COP4365_Project2
 {
     public partial class Form_Loader : Form
     {
-        private List<aCandlestick> tempList = new List<aCandlestick>(1024);
-        private BindingList<aCandlestick> candlesticks { get; set; }
-        private string referenceHeader = "\"Ticker\",\"Period\",\"Date\",\"Open\",\"High\",\"Low\",\"Close\",\"Volume\"";
+        private Dictionary<string, List<aCandlestick>> _fileCandlesticks = new Dictionary<string, List<aCandlestick>>();
+
+        private string _referenceHeader = "\"Ticker\",\"Period\",\"Date\",\"Open\",\"High\",\"Low\",\"Close\",\"Volume\"";
 
         public Form_Loader()
         {
@@ -30,12 +30,12 @@ namespace COP4365_Project2
         //Function for reading candlesticks given a filename
         private List <aCandlestick> LoadCandlesticks(string filename)
         {
-            tempList.Clear();
+            var tempList = new List<aCandlestick>(1024);
             using (StreamReader sr = new StreamReader(filename))
             {
                 string line;
                 string header = sr.ReadLine();
-                if (header == referenceHeader)
+                if (header == _referenceHeader)
                 {
                     while ((line = sr.ReadLine()) != null)
                     {
@@ -53,35 +53,21 @@ namespace COP4365_Project2
             return tempList;
         }
 
-        //Filters candlesticks based on given dates
-        private void filterCandlesticks()
-        {
-            candlesticks = new BindingList<aCandlestick>();
-            //MAKE SURE CANDLESTICKS ARE IN RANGE
-            foreach (var candlestick in tempList)
-            {
-                if (candlestick.Date > dateTimePicker_endDate.Value)
-                {
-                    break;
-                }
-                if (candlestick.Date >= dateTimePicker_startDate.Value)
-                {
-                    candlesticks.Add(candlestick);
-                }
-            }
-        }
 
         //For each file, loads candlesticks into templist, filters them, and makes a new form
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
+            DateTime startDate = dateTimePicker_startDate.Value;
+            DateTime endDate = dateTimePicker_endDate.Value;
+
             foreach (var fileName in openFileDialog_stockLoader.FileNames)
             {
-                tempList.Clear();
-                tempList = LoadCandlesticks(fileName);
-                filterCandlesticks();
-                newForm(candlesticks);
+                var candlesticks = LoadCandlesticks(fileName);
+                _fileCandlesticks[fileName] = candlesticks;     // Store candlesticks with the filename as the key
+                newForm(fileName, startDate, endDate);          // Pass the filename and date range to the new form
             }
         }
+
 
         //Shows the file dialog box when the load stocks button is clicked
         private void button_loadStock_Click(object sender, EventArgs e)
@@ -90,11 +76,12 @@ namespace COP4365_Project2
         }
 
         //This function creates a new form, passes in data, and displays it
-        private void newForm(BindingList<aCandlestick> candlesticks)
+        private void newForm(string fileName, DateTime startDate, DateTime endDate)
         {
-            Form_viewer newForm = new Form_viewer();
-            newForm.LoadData(candlesticks);
+            Form_viewer newForm = new Form_viewer(_fileCandlesticks[fileName], startDate, endDate);
             newForm.Show();
         }
+
+
     }
 }

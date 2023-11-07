@@ -35,12 +35,12 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart_stockView = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.aCandlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button_Refresh = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_startDate = new System.Windows.Forms.DateTimePicker();
             this.label_startDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.aCandlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart_stockView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aCandlestickBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +81,10 @@
             this.chart_stockView.TabIndex = 0;
             this.chart_stockView.Text = "chart_stockView";
             // 
+            // aCandlestickBindingSource
+            // 
+            this.aCandlestickBindingSource.DataSource = typeof(COP4365_Project2.aCandlestick);
+            // 
             // button_Refresh
             // 
             this.button_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -92,23 +96,23 @@
             this.button_Refresh.UseVisualStyleBackColor = true;
             this.button_Refresh.Click += new System.EventHandler(this.button_Refresh_Click);
             // 
-            // dateTimePicker1
+            // dateTimePicker_endDate
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(467, 23);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(222, 22);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker_endDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker_endDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(467, 23);
+            this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
+            this.dateTimePicker_endDate.Size = new System.Drawing.Size(222, 22);
+            this.dateTimePicker_endDate.TabIndex = 2;
             // 
-            // dateTimePicker2
+            // dateTimePicker_startDate
             // 
-            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(136, 23);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(222, 22);
-            this.dateTimePicker2.TabIndex = 3;
+            this.dateTimePicker_startDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker_startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(136, 23);
+            this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
+            this.dateTimePicker_startDate.Size = new System.Drawing.Size(222, 22);
+            this.dateTimePicker_startDate.TabIndex = 3;
             // 
             // label_startDate
             // 
@@ -130,10 +134,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "End Date:";
             // 
-            // aCandlestickBindingSource
-            // 
-            this.aCandlestickBindingSource.DataSource = typeof(COP4365_Project2.aCandlestick);
-            // 
             // Form_viewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,8 +142,8 @@
             this.ClientSize = new System.Drawing.Size(856, 477);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label_startDate);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePicker_startDate);
+            this.Controls.Add(this.dateTimePicker_endDate);
             this.Controls.Add(this.button_Refresh);
             this.Controls.Add(this.chart_stockView);
             this.Name = "Form_viewer";
@@ -161,8 +161,8 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_stockView;
         private System.Windows.Forms.BindingSource aCandlestickBindingSource;
         private System.Windows.Forms.Button button_Refresh;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_endDate;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_startDate;
         private System.Windows.Forms.Label label_startDate;
         private System.Windows.Forms.Label label1;
     }

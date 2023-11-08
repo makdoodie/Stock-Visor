@@ -67,6 +67,8 @@
             // openFileDialog_stockLoader
             // 
             this.openFileDialog_stockLoader.FileName = "openFileDialog1";
+            this.openFileDialog_stockLoader.Filter = "All Stock Files| *.csv|Daily Stocks (*-Day.csv)|*-Day.csv|Weekly Stocks (*-Week.c" +
+    "sv)|*-Week.csv|Monthly Stocks (*-Month.csv)|*-Month.csv";
             this.openFileDialog_stockLoader.Multiselect = true;
             this.openFileDialog_stockLoader.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 

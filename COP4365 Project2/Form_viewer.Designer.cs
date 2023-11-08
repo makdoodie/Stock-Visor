@@ -35,12 +35,12 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart_stockView = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.aCandlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button_Refresh = new System.Windows.Forms.Button();
             this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_startDate = new System.Windows.Forms.DateTimePicker();
             this.label_startDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.aCandlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart_stockView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aCandlestickBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +62,7 @@
             this.chart_stockView.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ChartArea = "ChartArea_OHLC";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
+            series1.CustomProperties = "PriceDownColor=Red, PriceUpColor=Green";
             series1.Legend = "Legend1";
             series1.Name = "Series_OHLC";
             series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
@@ -80,10 +81,6 @@
             this.chart_stockView.Size = new System.Drawing.Size(807, 382);
             this.chart_stockView.TabIndex = 0;
             this.chart_stockView.Text = "chart_stockView";
-            // 
-            // aCandlestickBindingSource
-            // 
-            this.aCandlestickBindingSource.DataSource = typeof(COP4365_Project2.aCandlestick);
             // 
             // button_Refresh
             // 
@@ -133,6 +130,10 @@
             this.label1.Size = new System.Drawing.Size(82, 18);
             this.label1.TabIndex = 5;
             this.label1.Text = "End Date:";
+            // 
+            // aCandlestickBindingSource
+            // 
+            this.aCandlestickBindingSource.DataSource = typeof(COP4365_Project2.aCandlestick);
             // 
             // Form_viewer
             // 

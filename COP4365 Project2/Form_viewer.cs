@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COP4365_Project2
 {
     public partial class Form_viewer : Form
     {
-        private List<aCandlestick> allCandlesticks;
+        private List<smartCandlestick> allCandlesticks;
 
-        internal Form_viewer(List<aCandlestick> candlesticks, DateTime start, DateTime end)
+        internal Form_viewer(List<smartCandlestick> candlesticks, DateTime start, DateTime end)
         {
             InitializeComponent();
+            dateTimePicker_startDate.Value = start;
+            dateTimePicker_endDate.Value = end;
             allCandlesticks = candlesticks;
             LoadData(start, end); // Initially load the data with the provided date range
         }
@@ -32,7 +30,7 @@ namespace COP4365_Project2
         internal void LoadData(DateTime startDate, DateTime endDate)
         {
             var filteredCandlesticks = allCandlesticks.Where(c => c.Date >= startDate && c.Date <= endDate).ToList();
-            chart_stockView.DataSource = new BindingList<aCandlestick>(filteredCandlesticks);
+            chart_stockView.DataSource = new BindingList<smartCandlestick>(filteredCandlesticks);
             chart_stockView.DataBind();
         }
 
@@ -43,7 +41,5 @@ namespace COP4365_Project2
             DateTime endDate = dateTimePicker_endDate.Value;
             LoadData(startDate, endDate);
         }
-
-
     }
 }

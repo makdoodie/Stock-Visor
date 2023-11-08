@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="aCandlestick.cs" />
+    <Compile Include="smartCandlestick.cs" />
     <Compile Include="Form_loader.cs">
       <SubType>Form</SubType>
     </Compile>

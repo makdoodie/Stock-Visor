@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COP4365_Project2
 {
     public partial class Form_Loader : Form
     {
-        private Dictionary<string, List<aCandlestick>> _fileCandlesticks = new Dictionary<string, List<aCandlestick>>();
+        private Dictionary<string, List<smartCandlestick>> _fileCandlesticks = new Dictionary<string, List<smartCandlestick>>();
 
         private string _referenceHeader = "\"Ticker\",\"Period\",\"Date\",\"Open\",\"High\",\"Low\",\"Close\",\"Volume\"";
 
@@ -24,13 +19,13 @@ namespace COP4365_Project2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            dateTimePicker_startDate.Value = new DateTime(2023, 1, 1, 0, 0, 0);
         }
         
         //Function for reading candlesticks given a filename
-        private List <aCandlestick> LoadCandlesticks(string filename)
+        private List <smartCandlestick> LoadCandlesticks(string filename)
         {
-            var tempList = new List<aCandlestick>(1024);
+            var tempList = new List<smartCandlestick>(1024);
             using (StreamReader sr = new StreamReader(filename))
             {
                 string line;
@@ -39,7 +34,7 @@ namespace COP4365_Project2
                 {
                     while ((line = sr.ReadLine()) != null)
                     {
-                        aCandlestick newCandlestick = new aCandlestick(line);
+                        smartCandlestick newCandlestick = new smartCandlestick(line);
                         tempList.Add(newCandlestick);
                     }
                     tempList.Reverse(); //reverseing so the list is oldest to newest

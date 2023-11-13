@@ -79,6 +79,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\aCandlestick.datasource" />
+    <None Include="Properties\DataSources\COP4365_Project2.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\COP4365_Project2.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Form_Loader.datasource" />
+    <None Include="Properties\DataSources\Form_viewer.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\smartCandlestick.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

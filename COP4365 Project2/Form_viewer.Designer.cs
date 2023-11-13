@@ -35,13 +35,17 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart_stockView = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.smartCandlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button_Refresh = new System.Windows.Forms.Button();
             this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_startDate = new System.Windows.Forms.DateTimePicker();
             this.label_startDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox_patterns = new System.Windows.Forms.ComboBox();
+            this.button_clearPatterns = new System.Windows.Forms.Button();
             this.aCandlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart_stockView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.smartCandlestickBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aCandlestickBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +58,7 @@
             chartArea2.Name = "ChartArea_Volume";
             this.chart_stockView.ChartAreas.Add(chartArea1);
             this.chart_stockView.ChartAreas.Add(chartArea2);
-            this.chart_stockView.DataSource = this.aCandlestickBindingSource;
+            this.chart_stockView.DataSource = this.smartCandlestickBindingSource;
             legend1.Name = "Legend1";
             this.chart_stockView.Legends.Add(legend1);
             this.chart_stockView.Location = new System.Drawing.Point(25, 72);
@@ -68,7 +72,7 @@
             series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.XValueMember = "Date";
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            series1.YValueMembers = "Open, High, Low, Close";
+            series1.YValueMembers = "high, low, open, close";
             series1.YValuesPerPoint = 4;
             series2.ChartArea = "ChartArea_Volume";
             series2.Legend = "Legend1";
@@ -78,16 +82,20 @@
             series2.YValueMembers = "Volume";
             this.chart_stockView.Series.Add(series1);
             this.chart_stockView.Series.Add(series2);
-            this.chart_stockView.Size = new System.Drawing.Size(807, 382);
+            this.chart_stockView.Size = new System.Drawing.Size(806, 382);
             this.chart_stockView.TabIndex = 0;
             this.chart_stockView.Text = "chart_stockView";
+            // 
+            // smartCandlestickBindingSource
+            // 
+            this.smartCandlestickBindingSource.DataSource = typeof(COP4365_Project2.smartCandlestick);
             // 
             // button_Refresh
             // 
             this.button_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Refresh.Location = new System.Drawing.Point(716, 17);
+            this.button_Refresh.Location = new System.Drawing.Point(522, 17);
             this.button_Refresh.Name = "button_Refresh";
-            this.button_Refresh.Size = new System.Drawing.Size(116, 33);
+            this.button_Refresh.Size = new System.Drawing.Size(118, 43);
             this.button_Refresh.TabIndex = 1;
             this.button_Refresh.Text = "Refresh";
             this.button_Refresh.UseVisualStyleBackColor = true;
@@ -97,7 +105,7 @@
             // 
             this.dateTimePicker_endDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_endDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker_endDate.Location = new System.Drawing.Point(467, 23);
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(276, 38);
             this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
             this.dateTimePicker_endDate.Size = new System.Drawing.Size(222, 22);
             this.dateTimePicker_endDate.TabIndex = 2;
@@ -106,7 +114,7 @@
             // 
             this.dateTimePicker_startDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker_startDate.Location = new System.Drawing.Point(136, 23);
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(34, 38);
             this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
             this.dateTimePicker_startDate.Size = new System.Drawing.Size(222, 22);
             this.dateTimePicker_startDate.TabIndex = 3;
@@ -115,7 +123,7 @@
             // 
             this.label_startDate.AutoSize = true;
             this.label_startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_startDate.Location = new System.Drawing.Point(32, 27);
+            this.label_startDate.Location = new System.Drawing.Point(31, 17);
             this.label_startDate.Name = "label_startDate";
             this.label_startDate.Size = new System.Drawing.Size(89, 18);
             this.label_startDate.TabIndex = 4;
@@ -125,11 +133,41 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(372, 27);
+            this.label1.Location = new System.Drawing.Point(273, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 18);
             this.label1.TabIndex = 5;
             this.label1.Text = "End Date:";
+            // 
+            // comboBox_patterns
+            // 
+            this.comboBox_patterns.FormattingEnabled = true;
+            this.comboBox_patterns.Items.AddRange(new object[] {
+            "Bullish",
+            "Bearish",
+            "Neutal",
+            "Doji",
+            "DragonFlyDoji",
+            "GravestoneDoji",
+            "Marubozu",
+            "Hammer",
+            "InvertedHammer"});
+            this.comboBox_patterns.Location = new System.Drawing.Point(700, 18);
+            this.comboBox_patterns.Name = "comboBox_patterns";
+            this.comboBox_patterns.Size = new System.Drawing.Size(103, 21);
+            this.comboBox_patterns.TabIndex = 6;
+            this.comboBox_patterns.SelectedIndexChanged += new System.EventHandler(this.comboBox_patterns_SelectedIndexChanged);
+            // 
+            // button_clearPatterns
+            // 
+            this.button_clearPatterns.Location = new System.Drawing.Point(715, 43);
+            this.button_clearPatterns.Name = "button_clearPatterns";
+            this.button_clearPatterns.Size = new System.Drawing.Size(75, 23);
+            this.button_clearPatterns.TabIndex = 7;
+            this.button_clearPatterns.Text = "Clear";
+            this.button_clearPatterns.UseMnemonic = false;
+            this.button_clearPatterns.UseVisualStyleBackColor = true;
+            this.button_clearPatterns.Click += new System.EventHandler(this.button_clearPatterns_Click);
             // 
             // aCandlestickBindingSource
             // 
@@ -141,6 +179,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(856, 477);
+            this.Controls.Add(this.button_clearPatterns);
+            this.Controls.Add(this.comboBox_patterns);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label_startDate);
             this.Controls.Add(this.dateTimePicker_startDate);
@@ -151,6 +191,7 @@
             this.Text = "Stock Viewer";
             this.Load += new System.EventHandler(this.Form_viewer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart_stockView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.smartCandlestickBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aCandlestickBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,5 +207,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker_startDate;
         private System.Windows.Forms.Label label_startDate;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource smartCandlestickBindingSource;
+        private System.Windows.Forms.ComboBox comboBox_patterns;
+        private System.Windows.Forms.Button button_clearPatterns;
     }
 }

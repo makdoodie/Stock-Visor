@@ -62,7 +62,7 @@ namespace COP4365_Project2
             {
                 if (CandlestickMatchesPattern(candlestick, pattern))
                 {
-                    RectangleAnnotation annotation = CreateAnnotationForCandlestick(candlestick);
+                    ArrowAnnotation annotation = CreateAnnotationForCandlestick(candlestick);
                     chart_stockView.Annotations.Add(annotation);
                 }
             }
@@ -87,17 +87,18 @@ namespace COP4365_Project2
             }
         }
 
-        private RectangleAnnotation CreateAnnotationForCandlestick(smartCandlestick candlestick)
+        private ArrowAnnotation CreateAnnotationForCandlestick(smartCandlestick cs)
         {
             // Adjust the position and size of the annotation as needed
-            var annotation = new RectangleAnnotation
+            ArrowAnnotation annotation = new ArrowAnnotation
             {
-                AnchorDataPoint = chart_stockView.Series[0].Points.FirstOrDefault(p => p.XValue == candlestick.Date.ToOADate()),
-                Text = "Pattern",
-                // You may want to adjust these properties:
-                // ForeColor, BackColor, LineColor, Width, Height, etc.
+                AnchorDataPoint = chart_stockView.Series[0].Points.FirstOrDefault(p => p.XValue == cs.Date.ToOADate()),
+                AnchorX = cs.Date.ToOADate(),
+                AnchorY = (double)cs.High,
+                Height = (double)-cs.Range,
+                Width = 0.8,
+                LineColor = Color.Black
             };
-
             return annotation;
         }
 

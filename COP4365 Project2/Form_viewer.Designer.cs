@@ -35,7 +35,6 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart_stockView = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.smartCandlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button_Refresh = new System.Windows.Forms.Button();
             this.dateTimePicker_endDate = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_startDate = new System.Windows.Forms.DateTimePicker();
@@ -43,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_patterns = new System.Windows.Forms.ComboBox();
             this.button_clearPatterns = new System.Windows.Forms.Button();
+            this.smartCandlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aCandlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart_stockView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.smartCandlestickBindingSource)).BeginInit();
@@ -85,10 +85,6 @@
             this.chart_stockView.Size = new System.Drawing.Size(806, 382);
             this.chart_stockView.TabIndex = 0;
             this.chart_stockView.Text = "chart_stockView";
-            // 
-            // smartCandlestickBindingSource
-            // 
-            this.smartCandlestickBindingSource.DataSource = typeof(COP4365_Project2.smartCandlestick);
             // 
             // button_Refresh
             // 
@@ -145,7 +141,7 @@
             this.comboBox_patterns.Items.AddRange(new object[] {
             "Bullish",
             "Bearish",
-            "Neutal",
+            "Neutral",
             "Doji",
             "DragonFlyDoji",
             "GravestoneDoji",
@@ -168,6 +164,10 @@
             this.button_clearPatterns.UseMnemonic = false;
             this.button_clearPatterns.UseVisualStyleBackColor = true;
             this.button_clearPatterns.Click += new System.EventHandler(this.button_clearPatterns_Click);
+            // 
+            // smartCandlestickBindingSource
+            // 
+            this.smartCandlestickBindingSource.DataSource = typeof(COP4365_Project2.smartCandlestick);
             // 
             // aCandlestickBindingSource
             // 

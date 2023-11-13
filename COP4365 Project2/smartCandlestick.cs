@@ -44,14 +44,26 @@ namespace COP4365_Project2
             // Define the threshold for considering a candlestick as a Doji
             float dojiThreshold = Range * 0.1f;
 
-            // Define the thresholds for considering a candlestick as significantly bullish or bearish
-            const float significantBullishThreshold = 1.03f; // 3% higher close than open
-            const float significantBearishThreshold = 0.97f; // 3% lower close than open (or open is 3% higher than close)
+            decimal threshold = Open * 0.01m; // 1% of the opening price
 
-            // Significantly Bullish or Bearish
-            IsBullish = Close / Open >= (int)significantBullishThreshold;
-            IsBearish = Open / Close >= (int)significantBearishThreshold;
-            IsNeutral = !IsBullish && !IsBearish;
+            if (Close > Open + threshold)
+            {
+                IsBullish = true;
+                IsBearish = false;
+                IsNeutral = false;
+            }
+            else if (Close < Open - threshold)
+            {
+                IsBullish = false;
+                IsBearish = true;
+                IsNeutral = false;
+            }
+            else
+            {
+                IsBullish = false;
+                IsBearish = false;
+                IsNeutral = true;
+            }
 
             // Marubozu - no or very small tails
             IsMarubozu = UpperTail < dojiThreshold && LowerTail < dojiThreshold && BodyRange > dojiThreshold;

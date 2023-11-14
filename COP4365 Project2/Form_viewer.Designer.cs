@@ -44,6 +44,7 @@
             this.button_clearPatterns = new System.Windows.Forms.Button();
             this.smartCandlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aCandlestickBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label_patternSelect = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart_stockView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.smartCandlestickBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aCandlestickBindingSource)).BeginInit();
@@ -61,7 +62,7 @@
             this.chart_stockView.DataSource = this.smartCandlestickBindingSource;
             legend1.Name = "Legend1";
             this.chart_stockView.Legends.Add(legend1);
-            this.chart_stockView.Location = new System.Drawing.Point(25, 72);
+            this.chart_stockView.Location = new System.Drawing.Point(25, 83);
             this.chart_stockView.Name = "chart_stockView";
             this.chart_stockView.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ChartArea = "ChartArea_OHLC";
@@ -89,9 +90,9 @@
             // button_Refresh
             // 
             this.button_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Refresh.Location = new System.Drawing.Point(522, 17);
+            this.button_Refresh.Location = new System.Drawing.Point(515, 27);
             this.button_Refresh.Name = "button_Refresh";
-            this.button_Refresh.Size = new System.Drawing.Size(118, 43);
+            this.button_Refresh.Size = new System.Drawing.Size(105, 38);
             this.button_Refresh.TabIndex = 1;
             this.button_Refresh.Text = "Refresh";
             this.button_Refresh.UseVisualStyleBackColor = true;
@@ -101,7 +102,7 @@
             // 
             this.dateTimePicker_endDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_endDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker_endDate.Location = new System.Drawing.Point(276, 38);
+            this.dateTimePicker_endDate.Location = new System.Drawing.Point(276, 42);
             this.dateTimePicker_endDate.Name = "dateTimePicker_endDate";
             this.dateTimePicker_endDate.Size = new System.Drawing.Size(222, 22);
             this.dateTimePicker_endDate.TabIndex = 2;
@@ -110,7 +111,7 @@
             // 
             this.dateTimePicker_startDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_startDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker_startDate.Location = new System.Drawing.Point(34, 38);
+            this.dateTimePicker_startDate.Location = new System.Drawing.Point(33, 42);
             this.dateTimePicker_startDate.Name = "dateTimePicker_startDate";
             this.dateTimePicker_startDate.Size = new System.Drawing.Size(222, 22);
             this.dateTimePicker_startDate.TabIndex = 3;
@@ -148,7 +149,7 @@
             "Marubozu",
             "Hammer",
             "InvertedHammer"});
-            this.comboBox_patterns.Location = new System.Drawing.Point(700, 18);
+            this.comboBox_patterns.Location = new System.Drawing.Point(725, 26);
             this.comboBox_patterns.Name = "comboBox_patterns";
             this.comboBox_patterns.Size = new System.Drawing.Size(103, 21);
             this.comboBox_patterns.TabIndex = 6;
@@ -156,9 +157,9 @@
             // 
             // button_clearPatterns
             // 
-            this.button_clearPatterns.Location = new System.Drawing.Point(715, 43);
+            this.button_clearPatterns.Location = new System.Drawing.Point(725, 50);
             this.button_clearPatterns.Name = "button_clearPatterns";
-            this.button_clearPatterns.Size = new System.Drawing.Size(75, 23);
+            this.button_clearPatterns.Size = new System.Drawing.Size(103, 23);
             this.button_clearPatterns.TabIndex = 7;
             this.button_clearPatterns.Text = "Clear";
             this.button_clearPatterns.UseMnemonic = false;
@@ -173,12 +174,23 @@
             // 
             this.aCandlestickBindingSource.DataSource = typeof(COP4365_Project2.aCandlestick);
             // 
+            // label_patternSelect
+            // 
+            this.label_patternSelect.AutoSize = true;
+            this.label_patternSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_patternSelect.Location = new System.Drawing.Point(726, 8);
+            this.label_patternSelect.Name = "label_patternSelect";
+            this.label_patternSelect.Size = new System.Drawing.Size(101, 15);
+            this.label_patternSelect.TabIndex = 8;
+            this.label_patternSelect.Text = "Pattern Select:";
+            // 
             // Form_viewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(856, 477);
+            this.Controls.Add(this.label_patternSelect);
             this.Controls.Add(this.button_clearPatterns);
             this.Controls.Add(this.comboBox_patterns);
             this.Controls.Add(this.label1);
@@ -210,5 +222,6 @@
         private System.Windows.Forms.BindingSource smartCandlestickBindingSource;
         private System.Windows.Forms.ComboBox comboBox_patterns;
         private System.Windows.Forms.Button button_clearPatterns;
+        private System.Windows.Forms.Label label_patternSelect;
     }
 }

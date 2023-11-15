@@ -7,7 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace COP4365_Project2
+namespace COP4365_Project3
 {
     public partial class Form_viewer : Form
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace COP4365_Project2
+namespace COP4365_Project3
 {
     internal class aCandlestick
     {

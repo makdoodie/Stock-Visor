@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace COP4365_Project2
+namespace COP4365_Project3
 {
     internal static class Program
     {

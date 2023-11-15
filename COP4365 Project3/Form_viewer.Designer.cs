@@ -1,4 +1,4 @@
-﻿namespace COP4365_Project2
+﻿namespace COP4365_Project3
 {
     partial class Form_viewer
     {
@@ -168,11 +168,11 @@
             // 
             // smartCandlestickBindingSource
             // 
-            this.smartCandlestickBindingSource.DataSource = typeof(COP4365_Project2.smartCandlestick);
+            this.smartCandlestickBindingSource.DataSource = typeof(COP4365_Project3.smartCandlestick);
             // 
             // aCandlestickBindingSource
             // 
-            this.aCandlestickBindingSource.DataSource = typeof(COP4365_Project2.aCandlestick);
+            this.aCandlestickBindingSource.DataSource = typeof(COP4365_Project3.aCandlestick);
             // 
             // label_patternSelect
             // 

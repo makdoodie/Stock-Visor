@@ -48,6 +48,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="aCandlestick.cs" />
+    <Compile Include="BearishRecognizer.cs" />
+    <Compile Include="BullishRecognizer.cs" />
+    <Compile Include="DragonFlyDojiRecognizer.cs" />
+    <Compile Include="DojiRecognizer.cs" />
+    <Compile Include="GravestoneDojiRecognizer.cs" />
+    <Compile Include="HammerRecognizer.cs" />
+    <Compile Include="InvertedHammer.cs" />
+    <Compile Include="MarubozuRecognizer.cs" />
+    <Compile Include="NeutralRecognizer.cs" />
+    <Compile Include="recognizer.cs" />
     <Compile Include="smartCandlestick.cs" />
     <Compile Include="Form_loader.cs">
       <SubType>Form</SubType>

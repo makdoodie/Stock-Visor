@@ -26,7 +26,6 @@ namespace COP4365_Project3
             LoadData(start, end);
         }
 
-
         private void Form_viewer_Load(object sender, EventArgs e)
         {
             fillRecognizersList();  // Fills the recognizer list
@@ -77,23 +76,6 @@ namespace COP4365_Project3
             chart_stockView.Invalidate(); // Refresh the chart to show the annotations.
         }
 
-
-        /*        // Highlight the candlesticks based on the selected pattern.
-                private void HighlightCandlesticks(int pattern)
-                {
-                    recognizer currRecognizer = recognizers[pattern];
-                    var toBeHighlighted = currRecognizer.recognize(filteredCandlesticks);
-
-                    foreach (var index in toBeHighlighted)
-                    {
-                        var candlestick = filteredCandlesticks[index];
-                        ArrowAnnotation annotation = CreateAnnotationForCandlestick(candlestick);
-                        chart_stockView.Annotations.Add(annotation);
-                    }
-
-                    chart_stockView.Invalidate(); // Refresh the chart to show the annotations.
-                }*/
-
         // Create an annotation for a given pattern
         private ArrowAnnotation CreateAnnotationForPattern(List<smartCandlestick> patternCandlesticks)
         {
@@ -127,24 +109,6 @@ namespace COP4365_Project3
                 LineColor = Color.Black
             };
         }
-
-
-
-
-        /*// Highlight the candlesticks based on the selected pattern.
-        private ArrowAnnotation CreateAnnotationForCandlestick(smartCandlestick cs)
-        {
-            ArrowAnnotation annotation = new ArrowAnnotation
-            {
-                AnchorDataPoint = chart_stockView.Series[0].Points.FirstOrDefault(p => p.XValue == cs.Date.ToOADate()),
-                AnchorX = cs.Date.ToOADate(),
-                AnchorY = (double)cs.High,
-                Height = (double)-cs.Range,
-                Width = 0.8,
-                LineColor = Color.Black
-            };
-            return annotation;
-        }*/
 
         private void button_clearPatterns_Click(object sender, EventArgs e)
         {

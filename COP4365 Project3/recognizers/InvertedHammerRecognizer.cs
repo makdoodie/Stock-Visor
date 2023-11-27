@@ -4,7 +4,7 @@ namespace COP4365_Project3
 {
     internal class InvertedHammerRecognizer : recognizer
     {
-        public InvertedHammerRecognizer() : base("InvertedHammer", 1) { }
+        public InvertedHammerRecognizer() : base("Inverted Hammer", 1) { }
 
         protected override bool RecognizePattern(List<smartCandlestick> scsList)
         {

@@ -48,20 +48,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="aCandlestick.cs" />
-    <Compile Include="BearishEngulfingRecognizer.cs" />
-    <Compile Include="BullishHaramiRecognizer.cs" />
-    <Compile Include="BearishRecognizer.cs" />
-    <Compile Include="BearishHaramiRecognizer.cs" />
-    <Compile Include="BullishRecognizer.cs" />
-    <Compile Include="DragonFlyDojiRecognizer.cs" />
-    <Compile Include="DojiRecognizer.cs" />
-    <Compile Include="BullishEngulfingRecognizer.cs" />
-    <Compile Include="GravestoneDojiRecognizer.cs" />
-    <Compile Include="HammerRecognizer.cs" />
-    <Compile Include="InvertedHammer.cs" />
-    <Compile Include="MarubozuRecognizer.cs" />
-    <Compile Include="NeutralRecognizer.cs" />
-    <Compile Include="PeakRecognizer.cs" />
+    <Compile Include="recognizers\BearishEngulfingRecognizer.cs" />
+    <Compile Include="recognizers\BullishHaramiRecognizer.cs" />
+    <Compile Include="recognizers\BearishRecognizer.cs" />
+    <Compile Include="recognizers\BearishHaramiRecognizer.cs" />
+    <Compile Include="recognizers\BullishRecognizer.cs" />
+    <Compile Include="recognizers\DragonFlyDojiRecognizer.cs" />
+    <Compile Include="recognizers\DojiRecognizer.cs" />
+    <Compile Include="recognizers\BullishEngulfingRecognizer.cs" />
+    <Compile Include="recognizers\GravestoneDojiRecognizer.cs" />
+    <Compile Include="recognizers\HammerRecognizer.cs" />
+    <Compile Include="recognizers\InvertedHammerRecognizer.cs" />
+    <Compile Include="recognizers\MarubozuRecognizer.cs" />
+    <Compile Include="recognizers\NeutralRecognizer.cs" />
+    <Compile Include="recognizers\PeakRecognizer.cs" />
     <Compile Include="recognizer.cs" />
     <Compile Include="smartCandlestick.cs" />
     <Compile Include="Form_loader.cs">
@@ -78,7 +78,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValleyRecognizer.cs" />
+    <Compile Include="recognizers\ValleyRecognizer.cs" />
     <EmbeddedResource Include="Form_loader.resx">
       <DependentUpon>Form_loader.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,5 +118,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

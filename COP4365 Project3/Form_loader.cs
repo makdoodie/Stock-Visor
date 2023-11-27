@@ -10,7 +10,7 @@ namespace COP4365_Project3
     {
         private Dictionary<string, List<smartCandlestick>> _fileCandlesticks = new Dictionary<string, List<smartCandlestick>>();
 
-        private string _referenceHeader = "\"Ticker\",\"Period\",\"Date\",\"Open\",\"High\",\"Low\",\"Close\",\"Volume\"";
+        private const string ReferenceHeader = "\"Ticker\",\"Period\",\"Date\",\"Open\",\"High\",\"Low\",\"Close\",\"Volume\"";
 
         public Form_Loader()
         {
@@ -30,7 +30,7 @@ namespace COP4365_Project3
             {
                 string line;
                 string header = sr.ReadLine();
-                if (header == _referenceHeader)
+                if (header == ReferenceHeader)
                 {
                     while ((line = sr.ReadLine()) != null)
                     {
@@ -67,13 +67,13 @@ namespace COP4365_Project3
         //Shows the file dialog box when the load stocks button is clicked
         private void button_loadStock_Click(object sender, EventArgs e)
         {
-            DialogResult result = openFileDialog_stockLoader.ShowDialog();
+            openFileDialog_stockLoader.ShowDialog();
         }
 
         //This function creates a new form, passes in data, and displays it
         private void newForm(string fileName, DateTime startDate, DateTime endDate)
         {
-            Form_viewer newForm = new Form_viewer(_fileCandlesticks[fileName], startDate, endDate);
+            Form_viewer newForm = new Form_viewer(Path.GetFileNameWithoutExtension(fileName), _fileCandlesticks[fileName], startDate, endDate);
             newForm.Show();
         }
 

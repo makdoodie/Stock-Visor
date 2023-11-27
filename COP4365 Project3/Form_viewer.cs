@@ -16,9 +16,10 @@ namespace COP4365_Project3
         private List<recognizer> recognizers = new List<recognizer>();                              // Stores instances of different pattern recognizers
 
         // Constructor for the form, initializes the component and loads initial data
-        internal Form_viewer(List<smartCandlestick> candlesticks, DateTime start, DateTime end)
+        internal Form_viewer(string filename, List<smartCandlestick> candlesticks, DateTime start, DateTime end)
         {
             InitializeComponent();
+            label_ticker.Text = filename + "                        ";
             dateTimePicker_startDate.Value = start;
             dateTimePicker_endDate.Value = end;
             allCandlesticks = candlesticks;
